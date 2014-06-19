@@ -1,0 +1,22 @@
+body {
+	font-family: Trebuchet MS;
+	font-size: 14px;
+}
+
+table {
+	width: 100%;
+	font-size: 12px;
+	color: #333;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+tr.time-stamp {
+	text-align: left;
+	color: #369;
+	background: #eee;
+}
+
+td {
+	padding-bottom: 15px;
+}

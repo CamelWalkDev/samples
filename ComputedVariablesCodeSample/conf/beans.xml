@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans	xmlns="http://www.coldspringframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:aop="http://www.coldspringframework.org/schema/aop"
+		xsi:schemaLocation="http://www.coldspringframework.org/schema/beans http://coldspringframework.org/schema/coldspring-beans-2.0.xsd
+							http://www.coldspringframework.org/schema/aop http://www.coldspringframework.org/schema/coldspring-aop-2.0.xsd"
+>
+	<bean id="ExperimentsGateway" class="org.camelwalkdev.experiment.ExperimentsGateway">
+		<constructor-arg name="dsn"><value>test</value></constructor-arg>
+	</bean>
+	<bean id="VariablesGateway" class="org.camelwalkdev.experiment.VariablesGateway">
+		<constructor-arg name="dsn"><value>test</value></constructor-arg>
+	</bean>
+	<bean id="ObservationsGateway" class="org.camelwalkdev.experiment.ObservationsGateway">
+		<constructor-arg name="dsn"><value>test</value></constructor-arg>
+	</bean>
+	<bean id="DataPointsGateway" class="org.camelwalkdev.experiment.DataPointsGateway">
+		<constructor-arg name="dsn"><value>test</value></constructor-arg>
+	</bean>
+	<bean id="ComputedVariableService" class="org.camelwalkdev.experiment.ComputedVariableService">
+		<constructor-arg name="VariablesGateway"><ref bean="VariablesGateway" /></constructor-arg>
+		<constructor-arg name="DataPointsGateway"><ref bean="DataPointsGateway" /></constructor-arg>
+	</bean>
+	<bean id="ExperimentService" class="org.camelwalkdev.experiment.ExperimentService">
+		<constructor-arg name="ComputedVariableService"><ref bean="ComputedVariableService" /></constructor-arg>
+		<constructor-arg name="ExperimentsGateway"><ref bean="ExperimentsGateway" /></constructor-arg>
+		<constructor-arg name="VariablesGateway"><ref bean="VariablesGateway" /></constructor-arg>
+		<constructor-arg name="ObservationsGateway"><ref bean="ObservationsGateway" /></constructor-arg>
+		<constructor-arg name="DataPointsGateway"><ref bean="DataPointsGateway" /></constructor-arg>
+	</bean>
+	
+
+</beans>
